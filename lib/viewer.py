@@ -26,10 +26,11 @@ class Viewer:
     #         raise Exception('Username must be string and between 6 and 16 characters.')
 
     def reviewed_movie(self, movie):
-        if movie in self.reviewed_movies:
-            return True
+        from movie import Movie
+        if isinstance(movie,Movie):
+            return movie in self.movies
         else:
-            return False
+            raise Exception("False")
 
     def rate_movie(self, movie, rating):
         from review import Review

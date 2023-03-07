@@ -63,3 +63,5 @@ class Review:
         if self._movie not in self._viewer.movies:
             self._viewer.movies.append(self._movie)
         # self._viewer.movies.append(self._movie)
+# movie = Movie(title="Tootsie")
+# viewer = Viewer(username="pongo_the_dog")

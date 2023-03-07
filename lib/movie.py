@@ -1,5 +1,5 @@
 class Movie:
-    all = []
+    reviewers = []
     def __init__(self, title):
         # if type(title) == str:
         #     self._title = title
@@ -10,9 +10,10 @@ class Movie:
         else:
             raise Exception('Movie title must be string.')
         self.reviews = []
-        self.viewers = []
-        self.reviewers = []    
-        Movie.all.append(self)
+        self.viewers = [] 
+        # for viewer in self.viewers:
+        #     self.reviewers.append(viewer)
+        Movie.reviewers.append(self)
 
     # title property goes here!
     @property
@@ -35,10 +36,12 @@ class Movie:
 
     @classmethod
     def highest_rated(cls):
-        li = []
-        for num in cls.all.reviews:
-            li.append(num.average_rating())
-        max = max(li)
+        avg = 0
+        for num in cls.reviewers:
+            if (sum(num.reviews))/len(num.reviews) > avg:
+                avg = (sum(num.reviews))/len(num.reviews)
+                user = num
+        return user
         
 
 
